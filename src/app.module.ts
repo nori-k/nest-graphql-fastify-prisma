@@ -5,6 +5,8 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaService } from './modules/prisma/prisma.service';
+import { UserModule } from './components/user/user.module';
+import { PostModule } from './components/post/post.module';
 
 const envbool = process.env.NODE_ENV !== 'production';
 @Module({
@@ -17,6 +19,8 @@ const envbool = process.env.NODE_ENV !== 'production';
       sortSchema: envbool,
       graphiql: envbool,
     }),
+    UserModule,
+    PostModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],
