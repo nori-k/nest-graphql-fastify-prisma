@@ -1,0 +1,39 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+enum Gender {
+  FEMALE
+  MALE
+  OTHER
+}
+
+type Mutation {
+  """User, 単数登録"""
+  createUser(userCreateInput: UserCreateInput!): User!
+}
+
+type Query {
+  """User, ID指定なし複数取得"""
+  getAllUser: [User!]!
+
+  """User, ID指定複数取得"""
+  getManyUserByIDs: [User!]!
+
+  """User,ID指定単数取得"""
+  getOneUserByID(userId: String!): User!
+}
+
+type User {
+  email: String!
+  gender: Gender!
+  id: ID!
+  name: String
+}
+
+input UserCreateInput {
+  email: String!
+  gender: Gender!
+  id: String
+  name: String
+}
